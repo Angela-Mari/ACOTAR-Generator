@@ -73,3 +73,13 @@ h1 {
   justify-content: center;
   min-height: 600px;
 }
+
+
+a {
+  color: #239780;
+}
+
+.form-control:focus {
+  border-color: #239780; /* Use your desired color */
+  box-shadow: 0 0 0 0.2rem rgba(34, 218, 188, 0.25); /* Optional: adjust box-shadow to match the border */
+}
