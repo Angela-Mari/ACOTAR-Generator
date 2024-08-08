@@ -2,30 +2,51 @@ h1 {
   font-family: "Ibarra Real Nova", serif;
 }
 
+.thorns-container {
+  width: 300px;
+  height: 75px;
+  z-index:100;
+  position:absolute;
+  left: 0;
+  right: 0;
+  bottom: 15rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2; /* Limits text to 2 lines */
+  text-align: center;
+  display: flex; /* Enables flexbox layout */
+  justify-content: center; /* Centers text horizontally */
+  word-break: break-word; /* Breaks long unbroken words */
+  overflow-wrap: break-word; /* Ensures words break to fit the container */
+}
+
 .thorns {
   font-family: "Ibarra Real Nova", serif;
   color: #FFF359;
-  text-align: center;
-  font-size: 50px;
-  z-index:100;
-  position:absolute;
-  min-height: 300px;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
-.roses {
-  font-family: "Ibarra Real Nova", serif;
-  color: #FFF359;
+.roses-container{
   text-align: center;
   font-size: 50px; /* min, preferred, max */
   z-index:100;
   position:absolute;
-  min-height: 150px;
+  height: 75px;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 5rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2; /* Limits text to 2 lines */
+  text-align: center;
+  display: flex; /* Enables flexbox layout */
+  justify-content: center; /* Centers text horizontally */
+  word-break: break-word; /* Breaks long unbroken words */
+  overflow-wrap: break-word; /* Ensures words break to fit the container */
+}
+.roses {
+  font-family: "Ibarra Real Nova", serif;
+  color: #FFF359;
+  
 }
 
 .cover {
