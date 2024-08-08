@@ -2,7 +2,9 @@ import './App.css'
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import ACOTAR from '../public/1.png'
+import ACOMAF from '../public/2.png'
 import Container from 'react-bootstrap/Container'
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
@@ -14,14 +16,15 @@ const [thorns, setThorns] = useState("THORNS")
 const [roses, setRoses] = useState("ROSES")
 const [myFontSize, setFontSize] = useState("50px")
 const [myLineHeight, setLineHeight] = useState("4rem")
-
+const [cover, setCover] = useState("THORNS")
 const [myFontSize2, setFontSize2] = useState("50px")
 const [myLineHeight2, setLineHeight2] = useState("4rem")
 
 const handleChange = (event) => {
   if (event.target.value == "") {
     setFontSize("50px")
-    setThorns("THORNS");
+    setThorns(cover);
+    setRoses(cover == "THORNS"? "ROSES" : "FURY")
     setLineHeight("4rem")
   }
   else {
@@ -86,28 +89,59 @@ const handleChange2 = (event) => {
   }
 };
 
+ const handleClick = () =>{
+  console.log("Click")
+  setCover((prevText) => (prevText === "THORNS" ? "MIST" : "THORNS"))
+
+  if (thorns == "THORNS") {
+    setThorns("MIST")
+  }
+
+  if (roses == "ROSES") {
+    setRoses("FURY")
+  }
+
+  if (thorns == "MIST"){
+    setThorns("THORNS")
+  }
+
+  if (roses == "FURY"){
+    setRoses("ROSES")
+  }
+
+  console.log(cover)
+  console.log(thorns)
+}
 
   return (
     <>
     <Container>
       <Navbar>
-        <Button>Color Change</Button>
-        <h1>ACOTAR Generator</h1>
-        
+        <Button onClick={handleClick} className='color-changer' style={{backgroundColor: cover == "MIST"? "#ee3a4b" : "#239780"}}></Button>
       </Navbar>
+
+      <div className='center'>
+        
       <div className='wrap'>
         <div className='thorns-container'>
           <p className='thorns' style={{fontSize: myFontSize, lineHeight: myLineHeight}}>{thorns.toUpperCase()}</p>
         </div>
-        <img src={ACOTAR} className='cover' height={"450px"}/>
+        <img src={cover == "THORNS"? ACOTAR : ACOMAF} className='cover' height={"450px"}/>
         <div className='roses-container'>
           <p className='roses' style={{fontSize: myFontSize2, lineHeight: myLineHeight2}}>{roses.toUpperCase()}</p>
         </div>
-        <Form>
-          <Form.Control type="text" placeholder="THORNS" onChange={handleChange}></Form.Control>
-          <Form.Control type="text" placeholder="ROSES" onChange={handleChange2}></Form.Control>
+        <Form style={{margin:"1rem"}}>
+          <Form.Control style={{marginBottom:"1rem"}} type="text" placeholder={thorns} onChange={handleChange}></Form.Control>
+          <Form.Control type="text" placeholder={roses} onChange={handleChange2}></Form.Control>
         </Form> 
       </div>
+
+      </div>
+      <footer style={{textAlign:"center"}}> 
+        <p>Take a screenshot to save!</p>
+        <p>Designed by <a href="https://angelageorge.com">Angela George</a> © 2024</p>
+      </footer>
+
       </Container>
     </>
   )

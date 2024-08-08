@@ -53,9 +53,23 @@ h1 {
   z-index: -1;
 }
 
+.color-changer {
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  border-width: 0px;
+  margin: 1rem;
+}
+
 .wrap {
-  position:relative; 
+  position:absolute;
   width: 300px;  
   height: 450px;
-  border: 1px solid grey;
+  
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  min-height: 600px;
 }
